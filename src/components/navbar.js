@@ -1,11 +1,20 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Scrollspy from 'react-scrollspy'
+import logo from '../../static/img/chocovitsa-logo.png'
 
-const Navbar = () => (
-  <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+const Navbar = ({ sticky }) => (
+  <nav
+    id="mainNav"
+    className={
+      sticky
+        ? 'navbar navbar-expand-lg navbar-dark fixed-top navbar-shrink'
+        : 'navbar navbar-expand-lg navbar-dark'
+    }
+  >
     <div className="container">
-      <a className="navbar-brand js-scroll-trigger" href="#page-top">
-        Start Bootstrap
+      <a className="navbar-brand" href="#page-top">
+        <img src={logo} alt="Chocovitsa" />
       </a>
       <button
         className="navbar-toggler navbar-toggler-right"
@@ -20,23 +29,29 @@ const Navbar = () => (
         <i className="fas fa-bars" />
       </button>
       <div className="collapse navbar-collapse" id="navbarResponsive">
-        <ul className="navbar-nav text-uppercase ml-auto">
+        <Scrollspy
+          items={['products', 'about', 'contact']}
+          currentClassName="active"
+          offset={-300}
+          rootEl="a"
+          className="navbar-nav text-uppercase ml-auto"
+        >
           <li className="nav-item">
-            <a className="nav-link js-scroll-trigger" href="#portfolio">
+            <a className="nav-link" href="#products">
               Шоколади
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link js-scroll-trigger" href="#about">
+            <a className="nav-link" href="#about">
               За нас
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link js-scroll-trigger" href="#contact">
+            <a className="nav-link" href="#contact">
               Контакти
             </a>
           </li>
-        </ul>
+        </Scrollspy>
       </div>
     </div>
   </nav>

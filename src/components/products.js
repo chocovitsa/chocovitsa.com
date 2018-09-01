@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 
 const Products = () => (
-  <section className="bg-light" id="portfolio">
+  <section className="bg-light" id="products">
     <div className="container">
       <div className="row">
         <div className="col-lg-12 text-center">
