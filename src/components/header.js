@@ -1,8 +1,13 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
-const Header = ({ siteTitle }) => (
+export default ({ image }) => (
   <header className="masthead">
+    <Img
+      style={{ top: 0, left: 0, right: 0, bottom: 0, position: `absolute` }}
+      fluid={image.childImageSharp.fluid}
+    />
     <div className="container">
       <div className="intro-text">
         <div className="intro-lead-in">Welcome To Our Studio!</div>
@@ -19,5 +24,3 @@ const Header = ({ siteTitle }) => (
     </div>
   </header>
 )
-
-export default Header

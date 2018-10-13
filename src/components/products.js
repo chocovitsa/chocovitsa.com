@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'gatsby-link'
 
 const Products = () => (
   <section className="bg-light" id="products">

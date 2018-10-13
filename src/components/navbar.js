@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import Scrollspy from 'react-scrollspy'
 import logo from '../../static/img/chocovitsa-logo.png'
 
