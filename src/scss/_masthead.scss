@@ -1,49 +1,57 @@
 // Styling for the masthead
 header.masthead {
-  text-align: center;
   color: white;
-  // background-image: url('../../static/img/header-bg.jpg');
-  // background-repeat: no-repeat;
-  // background-attachment: scroll;
-  // background-position: center center;
-  // background-size: cover;
+  position: relative;
+  height: 100%;
+  min-height: 100vh;
+  max-width: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
   .intro-text {
-    padding-top: 150px;
-    padding-bottom: 100px;
+    background-color: rgba(110, 105, 105, 0.6);
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 10px;
     .intro-lead-in {
-      font-size: 22px;
-      font-style: italic;
-      line-height: 22px;
-      margin-bottom: 25px;
-      @include serif-font;
+      background-image: url('/images/header-logo.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 90%;
+      height: 200px;
     }
     .intro-heading {
-      font-size: 50px;
-      font-weight: 700;
-      line-height: 50px;
-      margin-bottom: 25px;
+      font-size: 52px;
+      margin-top: -20px;
       @include heading-font;
     }
   }
 }
-@media (min-width: 768px) {
+
+@media (max-width: 768px) {
   header.masthead {
     .intro-text {
-      padding-top: 300px;
-      padding-bottom: 200px;
       .intro-lead-in {
-        font-size: 40px;
-        font-style: italic;
-        line-height: 40px;
-        margin-bottom: 25px;
-        @include serif-font;
+        background-image: url('/images/header-logo-sm.svg');
+        height: 250px;
       }
       .intro-heading {
-        font-size: 75px;
-        font-weight: 700;
-        line-height: 75px;
-        margin-bottom: 50px;
-        @include heading-font;
+        font-size: 42px;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  header.masthead {
+    .intro-text {
+      .intro-lead-in {
+        height: 38vw;
+      }
+      .intro-heading {
+        margin-top: -10px;
+        font-size: calc(12px + 5vw);
       }
     }
   }

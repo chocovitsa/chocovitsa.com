@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/all.css'
 
 import Header from './header'
-import Navbar from './navbar'
+import Navigation from './navigation'
 
 import '../scss/agency.scss'
 
@@ -36,10 +36,19 @@ class Layout extends React.Component {
                 title
               }
             }
-            headerImage: file(relativePath: { eq: "images/header-bg.jpg" }) {
+            headerBackground: file(
+              relativePath: { eq: "images/header-bg.png" }
+            ) {
               childImageSharp {
-                fluid(maxWidth: 1500, rotate: 180) {
+                fluid(maxHeight: 1280) {
                   ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            headerLogo: file(relativePath: { eq: "images/header-logo.png" }) {
+              childImageSharp {
+                fluid(maxHeight: 400) {
+                  ...GatsbyImageSharpFluid_noBase64
                 }
               }
             }
@@ -54,9 +63,9 @@ class Layout extends React.Component {
                 { name: 'keywords', content: 'sample, something' },
               ]}
             />
-            <Header image={data.headerImage} />
+            <Header background={data.headerBackground} logo={data.headerLogo} />
             <Waypoint onEnter={this.onEnter} onLeave={this.onLeave} />
-            <Navbar sticky={this.state.sticky} />
+            <Navigation />
 
             <div
               style={{
