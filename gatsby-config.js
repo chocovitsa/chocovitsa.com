@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter - Forty V2',
-    author: 'Hunter Chang',
-    description: 'A Gatsby.js V2 Starter based on Forty by HTML5 UP',
+    title: 'Chockovitsa - Chocolates in Bulgarian embroidery',
+    author: 'chocovitsa.com',
+    description: 'Chockovitsa web site',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -23,7 +23,7 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: 'Noto Sans',
+            family: 'Open Sans Condensed:300',
             subsets: ['latin', 'cyrillic'],
           },
         ],

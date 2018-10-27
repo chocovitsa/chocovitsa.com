@@ -37,10 +37,43 @@ class Layout extends React.Component {
               }
             }
             headerBackground: file(
-              relativePath: { eq: "images/header-bg.png" }
+              relativePath: { eq: "images/3-choco-on-rosehip-and-pumpkin.jpg" }
             ) {
               childImageSharp {
-                fluid(maxHeight: 1280) {
+                fluid(maxHeight: 1920) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            headerBlackChocolate: file(
+              relativePath: {
+                eq: "images/black-choco-in-basket-with-rosehip.jpg"
+              }
+            ) {
+              childImageSharp {
+                fluid(maxHeight: 1920) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            headerMilkChocolate: file(
+              relativePath: {
+                eq: "images/milk-choco-in-basket-with-rosehip-2.jpg"
+              }
+            ) {
+              childImageSharp {
+                fluid(maxHeight: 1920) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            headerWhiteChocolate: file(
+              relativePath: {
+                eq: "images/white-choco-in-basket-with-rosehip-2.jpg"
+              }
+            ) {
+              childImageSharp {
+                fluid(maxHeight: 1920) {
                   ...GatsbyImageSharpFluid
                 }
               }
@@ -63,7 +96,15 @@ class Layout extends React.Component {
                 { name: 'keywords', content: 'sample, something' },
               ]}
             />
-            <Header background={data.headerBackground} logo={data.headerLogo} />
+            <Header
+              images={[
+                data.headerBackground,
+                data.headerBlackChocolate,
+                data.headerMilkChocolate,
+                data.headerWhiteChocolate,
+              ]}
+              logo={data.headerLogo}
+            />
             <Waypoint onEnter={this.onEnter} onLeave={this.onLeave} />
             <Navigation />
 
