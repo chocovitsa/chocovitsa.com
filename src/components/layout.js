@@ -2,7 +2,6 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import Waypoint from 'react-waypoint'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/all.css'
 
@@ -105,7 +104,6 @@ class Layout extends React.Component {
               ]}
               logo={data.headerLogo}
             />
-            <Waypoint onEnter={this.onEnter} onLeave={this.onLeave} />
             <Navigation />
 
             <div
