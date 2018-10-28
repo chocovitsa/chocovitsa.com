@@ -8,31 +8,34 @@ import Footer from '../components/footer'
 export default ({ data }) => (
   <Layout>
     <div>
-      <Products content={data.chocolates.edges[0].node.html} />
-      <About content={data.about.edges[0].node.html} />
+      <Products data={data} />
+      <About data={data} />
       <Contact />
       <Footer />
     </div>
   </Layout>
 )
 
-export const aboutQuery = graphql`
+export const dataQuery = graphql`
   query {
-    chocolates: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/about-chocolates_bg/" } }
+    ...aboutChocolatesQuery
+    ...aboutChocovitsaQuery
+    milkChoco: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/bg/chocolate-milk.md/" } }
     ) {
       edges {
         node {
+          frontmatter {
+            wrapColor
+          }
           html
         }
       }
     }
-    about: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/about-chocovitsa_bg/" } }
-    ) {
-      edges {
-        node {
-          html
+    milkChocoImage: file(relativePath: { eq: "images/white-choco-wrrap.png" }) {
+      childImageSharp {
+        fluid(maxHeight: 700) {
+          ...GatsbyImageSharpFluid
         }
       }
     }

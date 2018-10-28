@@ -11,18 +11,6 @@ import Navigation from './navigation'
 import '../scss/agency.scss'
 
 class Layout extends React.Component {
-  state = {
-    sticky: false,
-  }
-
-  onEnter = () => {
-    this.setState({ sticky: false })
-  }
-
-  onLeave = () => {
-    this.setState({ sticky: true })
-  }
-
   render() {
     let { children } = this.props
 
@@ -105,17 +93,7 @@ class Layout extends React.Component {
               logo={data.headerLogo}
             />
             <Navigation />
-
-            <div
-              style={{
-                margin: '0 auto',
-                maxWidth: 960,
-                padding: '0px 1.0875rem 1.45rem',
-                paddingTop: 0,
-              }}
-            >
-              {children}
-            </div>
+            {children}
           </div>
         )}
       />

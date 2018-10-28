@@ -27,7 +27,7 @@ export default class Navigation extends React.Component {
   render() {
     return (
       <Navbar color="dark" dark expand="md" fixed="bottom" expand={true}>
-        <NavbarBrand>
+        <NavbarBrand href="#top">
           <img
             className="navbar-brand-lg"
             src={logoLg}
