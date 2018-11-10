@@ -7,7 +7,7 @@ import Contact from '../components/contact'
 import Footer from '../components/footer'
 
 export default ({ data }) => (
-  <Layout>
+  <Layout data={data}>
     <Header data={data} />
     <Products data={data} />
     <About data={data} />
@@ -21,22 +21,11 @@ export const dataQuery = graphql`
     ...showcaseQuery
     ...aboutChocolatesQuery
     ...aboutChocovitsaQuery
-    milkChoco: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/bg/chocolate-milk.md/" } }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            wrapColor
-          }
-          html
-        }
-      }
-    }
-    milkChocoImage: file(relativePath: { eq: "images/white-choco-wrrap.png" }) {
-      childImageSharp {
-        fluid(maxHeight: 700) {
-          ...GatsbyImageSharpFluid
+    site {
+      siteMetadata {
+        i18n {
+          defaultLang
+          langs
         }
       }
     }

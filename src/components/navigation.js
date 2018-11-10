@@ -1,13 +1,14 @@
 import React from 'react'
 import Scrollspy from 'react-scrollspy'
 import {
-  Collapse,
   Navbar,
-  NavbarToggler,
   NavbarBrand,
-  Nav,
   NavItem,
   NavLink,
+  Dropdown,
+  DropdownToggle,
+  DropdownItem,
+  DropdownMenu,
 } from 'reactstrap'
 import logoLg from '../images/header-logo.svg'
 import logoSm from '../images/chocovitsa-sign.svg'
@@ -24,7 +25,22 @@ const NavItemLink = ({ icon, text, href, active = false }) => (
 )
 
 export default class Navigation extends React.Component {
+  state = {
+    langSelectOpen: false,
+    langSelected: 'bg',
+  }
+
+  openLangSelect = () => {
+    this.setState({
+      langSelectOpen: !this.state.langSelectOpen,
+    })
+  }
+
   render() {
+    const langs = ['bg', 'gb']
+    let ValueInput = ({ item }) => (
+      <span className={`flag-icon flag-icon-${item}`} />
+    )
     return (
       <Navbar color="dark" dark expand="md" fixed="bottom" expand={true}>
         <NavbarBrand href="#top">
@@ -44,13 +60,29 @@ export default class Navigation extends React.Component {
         <Scrollspy
           items={['products', 'about', 'contact']}
           currentClassName="active"
-          className="navbar-nav text-uppercase nav-fill"
+          className="navbar-nav text-uppercase nav-fill mr-auto"
           offset="-300"
         >
           <NavItemLink icon={chocolateIcon} text="Шоколади" href="#products" />
           <NavItemLink icon={compassIcon} text="За нас" href="#about" />
           <NavItemLink icon={chatIcon} text="Контакти" href="#contact" />
         </Scrollspy>
+
+        <Dropdown
+          isOpen={this.state.langSelectOpen}
+          direction="up"
+          inNavbar={true}
+          toggle={this.openLangSelect}
+        >
+          <DropdownToggle caret>
+            <span className={`flag-icon flag-icon-bg`} /> Български
+          </DropdownToggle>
+          <DropdownMenu>
+            <DropdownItem>
+              <span className={`flag-icon flag-icon-gb`} /> English
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
       </Navbar>
     )
   }

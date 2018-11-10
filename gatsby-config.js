@@ -3,6 +3,10 @@ module.exports = {
     title: 'Chockovitsa - Chocolates in Bulgarian embroidery',
     author: 'chocovitsa.com',
     description: 'Chockovitsa web site',
+    i18n: {
+      langs: ['bg', 'en'],
+      defaultLang: 'bg',
+    },
   },
   plugins: [
     'gatsby-plugin-react-helmet',

@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "browser-locale": "^1.0.3",
     "flag-icon-css": "^3.2.1",
     "gatsby": "^2.0.22",
     "gatsby-image": "^2.0.14",
@@ -20,6 +21,8 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-helmet": "^5.2.0",
+    "react-intl": "^2.7.2",
+    "react-widgets": "^4.4.6",
     "reactstrap": "^6.5.0"
   },
   "keywords": [

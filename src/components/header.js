@@ -1,12 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import '@fortawesome/fontawesome-free/css/all.css'
-import 'flag-icon-css/css/flag-icon.min.css'
-
 import Showcase from './showcase'
-
-import '../scss/agency.scss'
 import { graphql } from 'gatsby'
 
 const Header = ({ data }) => (

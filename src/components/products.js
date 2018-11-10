@@ -32,8 +32,26 @@ const Products = ({ data }) => (
 
 export const aboutChocolatesQuery = graphql`
   fragment aboutChocolatesQuery on Query {
+    milkChocoImage: file(
+      relativePath: { eq: "images/milk-choco-on-rosehip.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 1920, quality: 80) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
     aboutChocolates: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/about-chocolates/" } }
+    ) {
+      edges {
+        node {
+          html
+        }
+      }
+    }
+    milkChoco: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/bg/chocolate-milk/" } }
     ) {
       edges {
         node {
