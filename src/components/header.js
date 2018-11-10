@@ -1,114 +1,131 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import '@fortawesome/fontawesome-free/css/all.css'
+
+import Showcase from './showcase'
+
+import '../scss/agency.scss'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import {
-  Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-  CarouselCaption,
-} from 'reactstrap'
 
-const items = [
-  {
-    altText: 'Slide 1',
-    caption: 'Chocovitsa',
-  },
-  {
-    altText: 'Slide 2',
-    caption: 'Black Chocolate',
-  },
-  {
-    altText: 'Slide 3',
-    caption: 'Milk Chocolate',
-  },
-  {
-    altText: 'Slide 3',
-    caption: 'White Chocolate',
-  },
-]
+const Header = ({ data }) => (
+  <Showcase
+    items={[
+      {
+        image: data.showcase1Background.childImageSharp.fluid,
+        altText: data.showcase1Description.edges[0].node.frontmatter.title,
+        caption: data.showcase1Description.edges[0].node.frontmatter.title,
+        summary: data.showcase1Description.edges[0].node.frontmatter.summary,
+      },
+      {
+        image: data.showcase2Background.childImageSharp.fluid,
+        altText: data.showcase2Description.edges[0].node.frontmatter.title,
+        caption: data.showcase2Description.edges[0].node.frontmatter.title,
+        summary: data.showcase2Description.edges[0].node.frontmatter.summary,
+      },
+      {
+        image: data.showcase3Background.childImageSharp.fluid,
+        altText: data.showcase3Description.edges[0].node.frontmatter.title,
+        caption: data.showcase3Description.edges[0].node.frontmatter.title,
+        summary: data.showcase3Description.edges[0].node.frontmatter.summary,
+      },
+      {
+        image: data.showcase4Background.childImageSharp.fluid,
+        altText: data.showcase4Description.edges[0].node.frontmatter.title,
+        caption: data.showcase4Description.edges[0].node.frontmatter.title,
+        summary: data.showcase4Description.edges[0].node.frontmatter.summary,
+      },
+    ]}
+  />
+)
 
-export default class Header extends React.Component {
-  state = { activeIndex: 0 }
+export default Header
 
-  onExiting = () => {
-    this.animating = true
+export const showcaseQuery = graphql`
+  fragment showcaseQuery on Query {
+    showcase1Background: file(
+      relativePath: { eq: "images/3-choco-on-rosehip-and-pumpkin.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 1920, quality: 80) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    showcase1Description: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/en/about-chocolates/" } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            summary
+          }
+        }
+      }
+    }
+    showcase2Background: file(
+      relativePath: { eq: "images/2-black-choco-in-basket.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 1920, quality: 80) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    showcase2Description: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/en/chocolate-black/" } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            summary
+          }
+        }
+      }
+    }
+    showcase3Background: file(
+      relativePath: { eq: "images/2-milk-choco-in-basket.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 1920, quality: 80) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    showcase3Description: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/en/chocolate-milk/" } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            summary
+          }
+        }
+      }
+    }
+    showcase4Background: file(
+      relativePath: { eq: "images/2-white-choco-in-basket.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 1920, quality: 80) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    showcase4Description: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/en/chocolate-white/" } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            summary
+          }
+        }
+      }
+    }
   }
-
-  onExited = () => {
-    this.animating = false
-  }
-
-  next = () => {
-    if (this.animating) return
-    const nextIndex =
-      this.state.activeIndex === items.length - 1
-        ? 0
-        : this.state.activeIndex + 1
-    this.setState({ activeIndex: nextIndex })
-  }
-
-  previous = () => {
-    if (this.animating) return
-    const nextIndex =
-      this.state.activeIndex === 0
-        ? items.length - 1
-        : this.state.activeIndex - 1
-    this.setState({ activeIndex: nextIndex })
-  }
-
-  goToIndex = newIndex => {
-    if (this.animating) return
-    this.setState({ activeIndex: newIndex })
-  }
-
-  render() {
-    const { images, logo } = this.props
-    const { activeIndex } = this.state
-    const slides = items.map((item, index) => {
-      return (
-        <CarouselItem
-          onExiting={this.onExiting}
-          onExited={this.onExited}
-          key={item.src}
-        >
-          <Img
-            style={{ height: '100vh' }}
-            fluid={images[index].childImageSharp.fluid}
-          />
-          <CarouselCaption
-            captionText={item.caption}
-            captionHeader={item.caption}
-          />
-        </CarouselItem>
-      )
-    })
-
-    return [
-      <header>
-        <Carousel
-          activeIndex={activeIndex}
-          next={this.next}
-          previous={this.previous}
-        >
-          <CarouselIndicators
-            items={items}
-            activeIndex={activeIndex}
-            onClickHandler={this.goToIndex}
-          />
-          {slides}
-          <CarouselControl
-            direction="prev"
-            directionText="Previous"
-            onClickHandler={this.previous}
-          />
-          <CarouselControl
-            direction="next"
-            directionText="Next"
-            onClickHandler={this.next}
-          />
-        </Carousel>
-      </header>,
-    ]
-  }
-}
+`

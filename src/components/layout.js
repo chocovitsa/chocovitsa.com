@@ -2,11 +2,9 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import Navigation from './navigation'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/all.css'
-
-import Header from './header'
-import Navigation from './navigation'
 
 import '../scss/agency.scss'
 
@@ -82,15 +80,6 @@ class Layout extends React.Component {
                 { name: 'description', content: 'Chovitsa' },
                 { name: 'keywords', content: 'sample, something' },
               ]}
-            />
-            <Header
-              images={[
-                data.headerBackground,
-                data.headerBlackChocolate,
-                data.headerMilkChocolate,
-                data.headerWhiteChocolate,
-              ]}
-              logo={data.headerLogo}
             />
             <Navigation />
             {children}

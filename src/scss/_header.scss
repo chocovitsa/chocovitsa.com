@@ -1,0 +1,16 @@
+.carousel-caption {
+  text-align: left;
+  top: 120px;
+  left: 10%;
+  right: 30%;
+  h3 {
+    display: inline-block;
+    font-size: 60px;
+    background: rgba($color: #343a40, $alpha: 0.4);
+    padding: 0 10px;
+  }
+  p {
+    font-size: 30px;
+    padding: 0 10px;
+  }
+}

@@ -13,6 +13,9 @@
       height: 30px;
     }
   }
+  &.bg-dark {
+    background: linear-gradient(to bottom, #343a4000, #343a40) !important;
+  }
 }
 
 @media (max-width: 768px) {

@@ -1,7 +1,8 @@
 ---
-title: 'Chocolates (EN)'
+title: 'Chocolates'
 date: '2018-10-06'
 author: 'chokovitsa.com'
+summary: 'Colourfull and modern, reshaping Bulgarian traditional embroidery in completely new way!'
 ---
 
 # Chocovitsa chocolate combines

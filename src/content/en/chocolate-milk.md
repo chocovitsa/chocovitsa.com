@@ -1,7 +1,14 @@
 ---
-title: "Milk chocolate (EN)"
-date: "2018-10-06"
-author: "chokovitsa.com"
+title: 'Milk chocolate'
+date: '2018-10-06'
+author: 'chokovitsa.com'
+summary: 'tender and delicate with pure taste!'
 ---
-Milk chocolate – tender and delicate with pure taste! 
-Ingredients: organic cocoa beans, cocoa butter, raw cane sugar, milk powder, vanilla
+
+# Milk chocolate
+
+Tender and delicate with pure taste!
+
+## Ingredients
+
+Organic cocoa beans, cocoa butter, raw cane sugar, milk powder, vanilla
