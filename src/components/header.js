@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/all.css'
+import 'flag-icon-css/css/flag-icon.min.css'
 
 import Showcase from './showcase'
 
@@ -53,7 +54,7 @@ export const showcaseQuery = graphql`
       }
     }
     showcase1Description: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/en/about-chocolates/" } }
+      filter: { fileAbsolutePath: { regex: "/bg/about-chocolates/" } }
     ) {
       edges {
         node {
@@ -65,7 +66,9 @@ export const showcaseQuery = graphql`
       }
     }
     showcase2Background: file(
-      relativePath: { eq: "images/2-black-choco-in-basket.jpg" }
+      relativePath: {
+        eq: "images/black-choco-with-spilled-basket-and-rosehip.jpg"
+      }
     ) {
       childImageSharp {
         fluid(maxWidth: 1920, quality: 80) {
@@ -74,7 +77,7 @@ export const showcaseQuery = graphql`
       }
     }
     showcase2Description: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/en/chocolate-black/" } }
+      filter: { fileAbsolutePath: { regex: "/bg/chocolate-black/" } }
     ) {
       edges {
         node {
@@ -86,7 +89,7 @@ export const showcaseQuery = graphql`
       }
     }
     showcase3Background: file(
-      relativePath: { eq: "images/2-milk-choco-in-basket.jpg" }
+      relativePath: { eq: "images/white-choco-on-rosehip.jpg" }
     ) {
       childImageSharp {
         fluid(maxWidth: 1920, quality: 80) {
@@ -95,7 +98,7 @@ export const showcaseQuery = graphql`
       }
     }
     showcase3Description: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/en/chocolate-milk/" } }
+      filter: { fileAbsolutePath: { regex: "/bg/chocolate-white/" } }
     ) {
       edges {
         node {
@@ -107,7 +110,7 @@ export const showcaseQuery = graphql`
       }
     }
     showcase4Background: file(
-      relativePath: { eq: "images/2-white-choco-in-basket.jpg" }
+      relativePath: { eq: "images/milk-choco-on-rosehip.jpg" }
     ) {
       childImageSharp {
         fluid(maxWidth: 1920, quality: 80) {
@@ -116,7 +119,7 @@ export const showcaseQuery = graphql`
       }
     }
     showcase4Description: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/en/chocolate-white/" } }
+      filter: { fileAbsolutePath: { regex: "/bg/chocolate-milk/" } }
     ) {
       edges {
         node {

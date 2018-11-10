@@ -1,9 +1,9 @@
 ---
-title: 'Млечен шоколад'
+language: 'bg'
 date: '2018-10-06'
 author: 'chokovitsa.com'
-wrapImage: 'white-choco-wrrap.png'
-wrapColor: '#f7e3da'
+title: 'Млечен шоколад'
+summary: 'Нежен и деликатен с изчистен вкус!'
 ---
 
 # Млечен шоколад

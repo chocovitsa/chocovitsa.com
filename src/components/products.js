@@ -4,12 +4,7 @@ import { Container, Row, Col } from 'reactstrap'
 import Img from 'gatsby-image'
 
 const Products = ({ data }) => (
-  <section
-    id="products"
-    style={{
-      backgroundColor: data.milkChoco.edges[0].node.frontmatter.wrapColor,
-    }}
-  >
+  <section id="products">
     <Container>
       <Row>
         <div
