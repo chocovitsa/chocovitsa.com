@@ -6,8 +6,8 @@ import About from '../components/about'
 import Contact from '../components/contact'
 import Footer from '../components/footer'
 
-export default ({ data }) => (
-  <Layout data={data}>
+export default ({ pathContext: { locale }, data }) => (
+  <Layout locale={locale} data={data}>
     <Header data={data} />
     <Products data={data} />
     <About data={data} />
@@ -17,16 +17,25 @@ export default ({ data }) => (
 )
 
 export const dataQuery = graphql`
-  query {
+  query dataQuery($locale: String) {
     ...showcaseQuery
     ...aboutChocolatesQuery
     ...aboutChocovitsaQuery
+    allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: { regex: "/about-chocolates/" }
+        frontmatter: { language: { eq: $locale } }
+      }
+    ) {
+      edges {
+        node {
+          id
+        }
+      }
+    }
     site {
       siteMetadata {
-        i18n {
-          defaultLang
-          langs
-        }
+        title
       }
     }
   }

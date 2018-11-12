@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Showcase from './showcase'
 import { graphql } from 'gatsby'
 
@@ -41,88 +40,56 @@ export const showcaseQuery = graphql`
     showcase1Background: file(
       relativePath: { eq: "images/3-choco-on-rosehip-and-pumpkin.jpg" }
     ) {
-      childImageSharp {
-        fluid(maxWidth: 1920, quality: 80) {
-          ...GatsbyImageSharpFluid
-        }
-      }
+      ...showcaseImageQuery
     }
     showcase1Description: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/bg/about-chocolates/" } }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            summary
-          }
-        }
+      filter: {
+        fileAbsolutePath: { regex: "/about-chocolates/" }
+        frontmatter: { language: { eq: $locale } }
       }
+    ) {
+      ...showcaseImageQuery
     }
     showcase2Background: file(
       relativePath: {
         eq: "images/black-choco-with-spilled-basket-and-rosehip.jpg"
       }
     ) {
-      childImageSharp {
-        fluid(maxWidth: 1920, quality: 80) {
-          ...GatsbyImageSharpFluid
-        }
-      }
+      ...showcaseImageQuery
     }
     showcase2Description: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/bg/chocolate-black/" } }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            summary
-          }
-        }
+      filter: {
+        fileAbsolutePath: { regex: "/bg/chocolate-black/" }
+        frontmatter: { language: { eq: $locale } }
       }
+    ) {
+      ...showcaseImageQuery
     }
     showcase3Background: file(
       relativePath: { eq: "images/white-choco-on-rosehip.jpg" }
     ) {
-      childImageSharp {
-        fluid(maxWidth: 1920, quality: 80) {
-          ...GatsbyImageSharpFluid
-        }
-      }
+      ...showcaseImageQuery
     }
     showcase3Description: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/bg/chocolate-white/" } }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            summary
-          }
-        }
+      filter: {
+        fileAbsolutePath: { regex: "/chocolate-white/" }
+        frontmatter: { language: { eq: $locale } }
       }
+    ) {
+      ...showcaseImageQuery
     }
     showcase4Background: file(
       relativePath: { eq: "images/milk-choco-on-rosehip.jpg" }
     ) {
-      childImageSharp {
-        fluid(maxWidth: 1920, quality: 80) {
-          ...GatsbyImageSharpFluid
-        }
-      }
+      ...showcaseImageQuery
     }
     showcase4Description: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/bg/chocolate-milk/" } }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            summary
-          }
-        }
+      filter: {
+        fileAbsolutePath: { regex: "/bg/chocolate-milk/" }
+        frontmatter: { language: { eq: $locale } }
       }
+    ) {
+      ...showcaseImageQuery
     }
   }
 `

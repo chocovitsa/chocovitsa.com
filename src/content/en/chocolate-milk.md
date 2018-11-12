@@ -3,6 +3,7 @@ title: 'Milk chocolate'
 date: '2018-10-06'
 author: 'chokovitsa.com'
 summary: 'tender and delicate with pure taste!'
+language: 'en'
 ---
 
 # Milk chocolate

@@ -10,6 +10,7 @@ import {
   DropdownItem,
   DropdownMenu,
 } from 'reactstrap'
+import FormattedMessage, { injectIntl } from 'react-intl'
 import logoLg from '../images/header-logo.svg'
 import logoSm from '../images/chocovitsa-sign.svg'
 import chocolateIcon from '../images/chocolate.svg'
@@ -24,7 +25,7 @@ const NavItemLink = ({ icon, text, href, active = false }) => (
   </NavItem>
 )
 
-export default class Navigation extends React.Component {
+class Navigation extends React.Component {
   state = {
     langSelectOpen: false,
     langSelected: 'bg',
@@ -37,10 +38,9 @@ export default class Navigation extends React.Component {
   }
 
   render() {
-    const langs = ['bg', 'gb']
-    let ValueInput = ({ item }) => (
-      <span className={`flag-icon flag-icon-${item}`} />
-    )
+    const {
+      intl: { messages },
+    } = this.props
     return (
       <Navbar color="dark" dark expand="md" fixed="bottom" expand={true}>
         <NavbarBrand href="#top">
@@ -63,9 +63,21 @@ export default class Navigation extends React.Component {
           className="navbar-nav text-uppercase nav-fill mr-auto"
           offset="-300"
         >
-          <NavItemLink icon={chocolateIcon} text="Шоколади" href="#products" />
-          <NavItemLink icon={compassIcon} text="За нас" href="#about" />
-          <NavItemLink icon={chatIcon} text="Контакти" href="#contact" />
+          <NavItemLink
+            icon={chocolateIcon}
+            text={messages['navigation.products']}
+            href="#products"
+          />
+          <NavItemLink
+            icon={compassIcon}
+            text={messages['navigation.about']}
+            href="#about"
+          />
+          <NavItemLink
+            icon={chatIcon}
+            text={messages['navigation.contact']}
+            href="#contact"
+          />
         </Scrollspy>
 
         <Dropdown
@@ -74,12 +86,14 @@ export default class Navigation extends React.Component {
           inNavbar={true}
           toggle={this.openLangSelect}
         >
-          <DropdownToggle caret>
-            <span className={`flag-icon flag-icon-bg`} /> Български
+          <DropdownToggle>
+            <span className={`flag-icon flag-icon-bg`} />
           </DropdownToggle>
-          <DropdownMenu>
+          <DropdownMenu right>
             <DropdownItem>
-              <span className={`flag-icon flag-icon-gb`} /> English
+              <span className={`flag-icon flag-icon-gb`} />{' '}
+              <span className={`flag-icon flag-icon-us`} />{' '}
+              <span className={`flag-icon flag-icon-au`} /> English
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
@@ -87,3 +101,5 @@ export default class Navigation extends React.Component {
     )
   }
 }
+
+export default injectIntl(Navigation)

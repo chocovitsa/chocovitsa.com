@@ -5,7 +5,6 @@ import {
   Carousel,
   CarouselItem,
   CarouselControl,
-  CarouselIndicators,
   CarouselCaption,
 } from 'reactstrap'
 
@@ -83,3 +82,26 @@ export default class Header extends React.Component {
     ]
   }
 }
+
+export const showcaseImageQuery = graphql`
+  fragment showcaseImageQuery on File {
+    childImageSharp {
+      fluid(maxWidth: 1920, quality: 80) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+`
+
+export const showcaseDescrQuery = graphql`
+  fragment showcaseDescrQuery on MarkdownRemarkConnection {
+    edges {
+      node {
+        frontmatter {
+          title
+          summary
+        }
+      }
+    }
+  }
+`
