@@ -4,12 +4,14 @@ exports.onCreatePage = ({ page, actions }) => {
   const { createPage, deletePage } = actions
 
   return new Promise(resolve => {
-    deletePage(page)
+    if (page.path === '/') {
+      resolve()
+      return
+    }
 
+    deletePage(page)
     Object.keys(locales).map(lang => {
-      const localizedPath = locales[lang].default
-        ? page.path
-        : locales[lang].path + page.path
+      const localizedPath = locales[lang].path + page.path
 
       return createPage({
         ...page,

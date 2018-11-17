@@ -12,8 +12,6 @@ import Navigation from './navigation'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/all.css'
-import 'react-widgets/dist/css/react-widgets.css'
-import 'flag-icon-css/css/flag-icon.min.css'
 import '../scss/agency.scss'
 
 const messages = { en: enMessages, bg: bgMessages }

@@ -44,7 +44,7 @@ export default class Header extends React.Component {
         <CarouselItem
           onExiting={this.onExiting}
           onExited={this.onExited}
-          key={item.src}
+          key={item.key}
         >
           <Img
             style={{ height: '100vh' }}
@@ -68,11 +68,13 @@ export default class Header extends React.Component {
         >
           {slides}
           <CarouselControl
+            key="prev"
             direction="prev"
             directionText="Previous"
             onClickHandler={this.previous}
           />
           <CarouselControl
+            key="next"
             direction="next"
             directionText="Next"
             onClickHandler={this.next}

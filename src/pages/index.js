@@ -1,42 +1,32 @@
 import React from 'react'
-import Layout from '../components/layout'
-import Header from '../components/header'
-import Products from '../components/products'
-import About from '../components/about'
-import Contact from '../components/contact'
-import Footer from '../components/footer'
+import browserLang from 'browser-lang'
+import { withPrefix } from 'gatsby-link'
+import locales from '../content/locales'
 
-export default ({ pathContext: { locale }, data }) => (
-  <Layout locale={locale} data={data}>
-    <Header data={data} />
-    <Products data={data} />
-    <About data={data} />
-    <Contact />
-    <Footer />
-  </Layout>
-)
+class Index extends React.Component {
+  constructor(props) {
+    super(props)
 
-export const dataQuery = graphql`
-  query dataQuery($locale: String) {
-    ...showcaseQuery
-    ...aboutChocolatesQuery
-    ...aboutChocovitsaQuery
-    allMarkdownRemark(
-      filter: {
-        fileAbsolutePath: { regex: "/about-chocolates/" }
-        frontmatter: { language: { eq: $locale } }
-      }
-    ) {
-      edges {
-        node {
-          id
-        }
-      }
-    }
-    site {
-      siteMetadata {
-        title
-      }
+    const langKeys = Object.keys(locales)
+    const fallback = Object.entries(locales).find(entry => entry[1].default)[0]
+
+    // Skip build, Browsers only
+    if (typeof window !== 'undefined') {
+      const detected =
+        window.localStorage.getItem('language') ||
+        browserLang({
+          languages: langKeys,
+          fallback,
+        })
+
+      const homeUrl = withPrefix(`/${detected}/home`)
+      window.___replace(homeUrl)
     }
   }
-`
+
+  render() {
+    return <div />
+  }
+}
+
+export default Index

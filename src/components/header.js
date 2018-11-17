@@ -10,24 +10,28 @@ const Header = ({ data }) => (
         altText: data.showcase1Description.edges[0].node.frontmatter.title,
         caption: data.showcase1Description.edges[0].node.frontmatter.title,
         summary: data.showcase1Description.edges[0].node.frontmatter.summary,
+        key: 'showcase1',
       },
       {
         image: data.showcase2Background.childImageSharp.fluid,
         altText: data.showcase2Description.edges[0].node.frontmatter.title,
         caption: data.showcase2Description.edges[0].node.frontmatter.title,
         summary: data.showcase2Description.edges[0].node.frontmatter.summary,
+        key: 'showcase2',
       },
       {
         image: data.showcase3Background.childImageSharp.fluid,
         altText: data.showcase3Description.edges[0].node.frontmatter.title,
         caption: data.showcase3Description.edges[0].node.frontmatter.title,
         summary: data.showcase3Description.edges[0].node.frontmatter.summary,
+        key: 'showcase3',
       },
       {
         image: data.showcase4Background.childImageSharp.fluid,
         altText: data.showcase4Description.edges[0].node.frontmatter.title,
         caption: data.showcase4Description.edges[0].node.frontmatter.title,
         summary: data.showcase4Description.edges[0].node.frontmatter.summary,
+        key: 'showcase4',
       },
     ]}
   />
@@ -48,7 +52,7 @@ export const showcaseQuery = graphql`
         frontmatter: { language: { eq: $locale } }
       }
     ) {
-      ...showcaseImageQuery
+      ...showcaseDescrQuery
     }
     showcase2Background: file(
       relativePath: {
@@ -59,11 +63,11 @@ export const showcaseQuery = graphql`
     }
     showcase2Description: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/bg/chocolate-black/" }
+        fileAbsolutePath: { regex: "/chocolate-black/" }
         frontmatter: { language: { eq: $locale } }
       }
     ) {
-      ...showcaseImageQuery
+      ...showcaseDescrQuery
     }
     showcase3Background: file(
       relativePath: { eq: "images/white-choco-on-rosehip.jpg" }
@@ -76,7 +80,7 @@ export const showcaseQuery = graphql`
         frontmatter: { language: { eq: $locale } }
       }
     ) {
-      ...showcaseImageQuery
+      ...showcaseDescrQuery
     }
     showcase4Background: file(
       relativePath: { eq: "images/milk-choco-on-rosehip.jpg" }
@@ -85,11 +89,11 @@ export const showcaseQuery = graphql`
     }
     showcase4Description: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/bg/chocolate-milk/" }
+        fileAbsolutePath: { regex: "/chocolate-milk/" }
         frontmatter: { language: { eq: $locale } }
       }
     ) {
-      ...showcaseImageQuery
+      ...showcaseDescrQuery
     }
   }
 `
