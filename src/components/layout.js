@@ -8,7 +8,7 @@ import bg from 'react-intl/locale-data/bg'
 import enMessages from '../content/messages.en'
 import bgMessages from '../content/messages.bg'
 
-import Navigation from './navigation'
+import Navigation from './Navigation'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/all.css'

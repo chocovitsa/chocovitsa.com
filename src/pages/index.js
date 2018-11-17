@@ -1,6 +1,6 @@
 import React from 'react'
 import browserLang from 'browser-lang'
-import { withPrefix } from 'gatsby-link'
+import { navigate } from 'gatsby'
 import locales from '../content/locales'
 
 class Index extends React.Component {
@@ -8,7 +8,7 @@ class Index extends React.Component {
     super(props)
 
     const langKeys = Object.keys(locales)
-    const fallback = Object.entries(locales).find(entry => entry[1].default)[0]
+    const fallback = langKeys.find(langKey => locales[langKey].default)
 
     // Skip build, Browsers only
     if (typeof window !== 'undefined') {
@@ -19,8 +19,7 @@ class Index extends React.Component {
           fallback,
         })
 
-      const homeUrl = withPrefix(`/${detected}/home`)
-      window.___replace(homeUrl)
+      navigate(`/${detected}/home`, { replace: true })
     }
   }
 

@@ -3,19 +3,24 @@ import Scrollspy from 'react-scrollspy'
 import {
   Navbar,
   NavbarBrand,
+  Nav,
   NavItem,
   NavLink,
-  Dropdown,
+  UncontrolledDropdown,
   DropdownToggle,
   DropdownItem,
   DropdownMenu,
 } from 'reactstrap'
-import FormattedMessage, { injectIntl } from 'react-intl'
+import { injectIntl } from 'react-intl'
+import { navigate } from 'gatsby'
+import locales from '../content/locales'
 import logoLg from '../images/header-logo.svg'
 import logoSm from '../images/chocovitsa-sign.svg'
 import chocolateIcon from '../images/chocolate.svg'
 import compassIcon from '../images/compass.svg'
-import chatIcon from '../images/chat.svg'
+import chatIcon from '../images/placeholder.svg'
+import langIcon from '../images/translation.svg'
+import moreIcon from '../images/more.svg'
 
 const NavItemLink = ({ icon, text, href, active = false }) => (
   <NavItem>
@@ -26,21 +31,22 @@ const NavItemLink = ({ icon, text, href, active = false }) => (
 )
 
 class Navigation extends React.Component {
-  state = {
-    langSelectOpen: false,
-    langSelected: 'bg',
-  }
-
-  openLangSelect = () => {
-    this.setState({
-      langSelectOpen: !this.state.langSelectOpen,
-    })
+  selectLang = langKey => {
+    window.localStorage.setItem('language', langKey)
+    navigate('/')
   }
 
   render() {
     const {
       intl: { messages },
     } = this.props
+
+    const langDropdownItems = Object.values(locales).map(locale => (
+      <DropdownItem onClick={() => this.selectLang(locale.path)}>
+        {locale.locale}
+      </DropdownItem>
+    ))
+
     return (
       <Navbar color="dark" dark expand="md" fixed="bottom" expand={true}>
         <NavbarBrand href="#top">
@@ -79,24 +85,15 @@ class Navigation extends React.Component {
             href="#contact"
           />
         </Scrollspy>
-
-        <Dropdown
-          isOpen={this.state.langSelectOpen}
-          direction="up"
-          inNavbar={true}
-          toggle={this.openLangSelect}
-        >
-          <DropdownToggle>
-            <span className={`flag-icon flag-icon-bg`} />
-          </DropdownToggle>
-          <DropdownMenu right>
-            <DropdownItem>
-              <span className={`flag-icon flag-icon-gb`} />{' '}
-              <span className={`flag-icon flag-icon-us`} />{' '}
-              <span className={`flag-icon flag-icon-au`} /> English
-            </DropdownItem>
-          </DropdownMenu>
-        </Dropdown>
+        <Nav>
+          <UncontrolledDropdown nav inNavbar direction="up">
+            <DropdownToggle nav>
+              <img src={langIcon} className="d-none d-md-block" />
+              <img src={moreIcon} className="d-block d-md-none" />
+            </DropdownToggle>
+            <DropdownMenu right>{langDropdownItems}</DropdownMenu>
+          </UncontrolledDropdown>
+        </Nav>
       </Navbar>
     )
   }
