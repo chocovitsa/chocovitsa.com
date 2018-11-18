@@ -1,4 +1,4 @@
-module.exports = [
+export default [
   {
     postion: [42.6947517, 23.3183354],
     place: 'София',
@@ -10,7 +10,7 @@ module.exports = [
     postion: [42.6962114, 23.3228677],
     place: 'София',
     address: 'пл. „Княз Александър I“ 1',
-    retailer: 'Магазин Балканско - Национален Етнографски Музей',
+    retailer: 'Магазин Балканско',
     site: 'http://balkansko-shops.bg/',
   },
   {
@@ -31,7 +31,34 @@ module.exports = [
     postion: [42.6850405, 23.3208862],
     place: 'София',
     address: 'ул. „Георги С. Раковски“ 178',
-    retailer: 'НоВа ЗеМя New Land Био магазин и пекарна',
+    retailer: 'Слънчев Дар',
     site: 'https://www.facebook.com/slunchevdar/',
+  },
+  {
+    postion: [42.154843, 24.7286255],
+    place: 'Пловдив',
+    address: 'бул. „Марица“ 19',
+    retailer: 'Магазин Лекси',
+    site: 'http://leksi.eu/',
+  },
+  {
+    postion: [42.1417092, 24.7541507],
+    place: 'Пловдив',
+    address: 'ул. „Капитан Райчо Николов“ 56',
+    retailer: 'Магазин Лекси',
+    site: 'http://leksi.eu/',
+  },
+  {
+    postion: [42.4877054, 27.4814757],
+    place: 'Бургас',
+    address: 'Магазия 1',
+    retailer: 'Магазин Балканско',
+    site: 'http://balkansko-shops.bg/',
+  },
+  {
+    postion: [43.0847511, 25.6370871],
+    place: 'Велико Търново',
+    address: 'ул. „Стефан Стамболов“ 53',
+    retailer: 'Магазин',
   },
 ]
