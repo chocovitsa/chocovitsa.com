@@ -1,7 +1,27 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const locales = require('./src/content/locales')
 
- // You can delete this file if you're not using it
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage, deletePage } = actions
+
+  return new Promise(resolve => {
+    if (page.path === '/') {
+      resolve()
+      return
+    }
+
+    deletePage(page)
+    Object.keys(locales).map(lang => {
+      const localizedPath = locales[lang].path + page.path
+
+      return createPage({
+        ...page,
+        path: localizedPath,
+        context: {
+          locale: lang,
+        },
+      })
+    })
+
+    resolve()
+  })
+}

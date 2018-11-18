@@ -42,7 +42,10 @@ export const aboutChocolatesQuery = graphql`
       }
     }
     aboutChocolates: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/about-chocolates/" } }
+      filter: {
+        fileAbsolutePath: { regex: "/about-chocolates/" }
+        frontmatter: { language: { eq: $locale } }
+      }
     ) {
       edges {
         node {
@@ -51,7 +54,10 @@ export const aboutChocolatesQuery = graphql`
       }
     }
     milkChoco: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/bg/chocolate-milk/" } }
+      filter: {
+        fileAbsolutePath: { regex: "/chocolate-milk/" }
+        frontmatter: { language: { eq: $locale } }
+      }
     ) {
       edges {
         node {

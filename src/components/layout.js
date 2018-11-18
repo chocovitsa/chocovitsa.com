@@ -5,23 +5,25 @@ import Helmet from 'react-helmet'
 import { IntlProvider, addLocaleData } from 'react-intl'
 import en from 'react-intl/locale-data/en'
 import bg from 'react-intl/locale-data/bg'
-import locale from 'browser-locale'
+import enMessages from '../content/messages.en'
+import bgMessages from '../content/messages.bg'
 
-import Navigation from './navigation'
+import Navigation from './Navigation'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/all.css'
-import 'react-widgets/dist/css/react-widgets.css'
-import 'flag-icon-css/css/flag-icon.min.css'
 import '../scss/agency.scss'
+
+const messages = { en: enMessages, bg: bgMessages }
 
 addLocaleData([...en, ...bg])
 class Layout extends React.Component {
+  chose
   render() {
-    const { data, children } = this.props
+    const { locale, data, children } = this.props
 
     return (
-      <IntlProvider locale="bg">
+      <IntlProvider locale={locale} messages={messages[locale]}>
         <div>
           <Helmet
             title={data.site.siteMetadata.title}
@@ -39,8 +41,9 @@ class Layout extends React.Component {
 }
 
 Layout.propTypes = {
-  data: PropTypes.object,
-  children: PropTypes.func,
+  locale: PropTypes.string.isRequired,
+  data: PropTypes.object.isRequired,
+  children: PropTypes.func.isRequired,
 }
 
 export default Layout

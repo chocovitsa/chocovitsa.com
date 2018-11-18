@@ -2,6 +2,7 @@
 title: 'The begining (BG)'
 date: '2018-10-06'
 author: 'chokovitsa.com'
+language: 'en'
 ---
 
 # The Beginning

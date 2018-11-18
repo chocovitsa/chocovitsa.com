@@ -5,7 +5,6 @@ import {
   Carousel,
   CarouselItem,
   CarouselControl,
-  CarouselIndicators,
   CarouselCaption,
 } from 'reactstrap'
 
@@ -45,7 +44,7 @@ export default class Header extends React.Component {
         <CarouselItem
           onExiting={this.onExiting}
           onExited={this.onExited}
-          key={item.src}
+          key={item.key}
         >
           <Img
             style={{ height: '100vh' }}
@@ -69,11 +68,13 @@ export default class Header extends React.Component {
         >
           {slides}
           <CarouselControl
+            key="prev"
             direction="prev"
             directionText="Previous"
             onClickHandler={this.previous}
           />
           <CarouselControl
+            key="next"
             direction="next"
             directionText="Next"
             onClickHandler={this.next}
@@ -83,3 +84,26 @@ export default class Header extends React.Component {
     ]
   }
 }
+
+export const showcaseImageQuery = graphql`
+  fragment showcaseImageQuery on File {
+    childImageSharp {
+      fluid(maxWidth: 1920, quality: 80) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+`
+
+export const showcaseDescrQuery = graphql`
+  fragment showcaseDescrQuery on MarkdownRemarkConnection {
+    edges {
+      node {
+        frontmatter {
+          title
+          summary
+        }
+      }
+    }
+  }
+`

@@ -2,7 +2,8 @@
 title: '60% cocoa with blueberries'
 date: '2018-10-06'
 author: 'chokovitsa.com'
-summary: a real extravagance for the senses
+summary: 'A real extravagance for the senses'
+language: 'en'
 ---
 
 # 60% cocoa with blueberries

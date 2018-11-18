@@ -1,33 +1,31 @@
 import React from 'react'
-import Layout from '../components/layout'
-import Header from '../components/header'
-import Products from '../components/products'
-import About from '../components/about'
-import Contact from '../components/contact'
-import Footer from '../components/footer'
+import browserLang from 'browser-lang'
+import { navigate } from 'gatsby'
+import locales from '../content/locales'
 
-export default ({ data }) => (
-  <Layout data={data}>
-    <Header data={data} />
-    <Products data={data} />
-    <About data={data} />
-    <Contact />
-    <Footer />
-  </Layout>
-)
+class Index extends React.Component {
+  constructor(props) {
+    super(props)
 
-export const dataQuery = graphql`
-  query {
-    ...showcaseQuery
-    ...aboutChocolatesQuery
-    ...aboutChocovitsaQuery
-    site {
-      siteMetadata {
-        i18n {
-          defaultLang
-          langs
-        }
-      }
+    const langKeys = Object.keys(locales)
+    const fallback = langKeys.find(langKey => locales[langKey].default)
+
+    // Skip build, Browsers only
+    if (typeof window !== 'undefined') {
+      const detected =
+        window.localStorage.getItem('language') ||
+        browserLang({
+          languages: langKeys,
+          fallback,
+        })
+
+      navigate(`/${detected}/home`, { replace: true })
     }
   }
-`
+
+  render() {
+    return <div />
+  }
+}
+
+export default Index
