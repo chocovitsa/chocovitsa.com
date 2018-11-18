@@ -20,7 +20,7 @@ import chocolateIcon from '../images/chocolate.svg'
 import compassIcon from '../images/compass.svg'
 import chatIcon from '../images/placeholder.svg'
 import langIcon from '../images/translation.svg'
-import moreIcon from '../images/more.svg'
+import moreIcon from '../images/choco-more.svg'
 
 const NavItemLink = ({ icon, text, href, active = false }) => (
   <NavItem>

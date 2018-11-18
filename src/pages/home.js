@@ -3,7 +3,7 @@ import Layout from '../components/layout'
 import Header from '../components/header'
 import Products from '../components/products'
 import About from '../components/about'
-import Contact from '../components/contact'
+import Contact from '../components/Contact'
 import Footer from '../components/footer'
 
 const Home = ({ pathContext: { locale }, data }) => (
