@@ -81,6 +81,7 @@ export default class Header extends React.Component {
           />
         </Carousel>
       </header>,
+      <div id="header-after" className="section-after" />,
     ]
   }
 }

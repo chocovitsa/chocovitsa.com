@@ -46,7 +46,7 @@ section {
 }
 @media (min-width: 768px) {
   section {
-    padding: 150px 0;
+    padding: 50px 0;
   }
 }
 
@@ -93,4 +93,10 @@ img::selection {
 
 img::-moz-selection {
   background: transparent;
+}
+
+div.section-after {
+  height: 20px;
+  background-repeat: repeat-x;
+  background-image: url('/images/section-after-1.png');
 }
