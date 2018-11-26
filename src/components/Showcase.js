@@ -9,18 +9,18 @@ import {
 } from 'reactstrap'
 
 export default class Header extends React.Component {
-  state = { activeIndex: 0, animating: false }
+  state = { activeIndex: 0 }
 
   onExiting = () => {
-    this.setState({ animating: true })
+    this.animating = true
   }
 
   onExited = () => {
-    this.setState({ animating: false })
+    this.animating = false
   }
 
   next = () => {
-    if (this.state.animating) return
+    if (this.animating) return
     const nextIndex =
       this.state.activeIndex === this.props.items.length - 1
         ? 0
@@ -47,9 +47,9 @@ export default class Header extends React.Component {
           key={item.key}
         >
           <Img
-            style={{ height: '100vh' }}
             fluid={item.image}
             alt={item.altText}
+            style={{ height: '100vh' }}
           />
           <CarouselCaption
             captionText={item.summary}
@@ -68,13 +68,11 @@ export default class Header extends React.Component {
         >
           {slides}
           <CarouselControl
-            key="prev"
             direction="prev"
             directionText="Previous"
             onClickHandler={this.previous}
           />
           <CarouselControl
-            key="next"
             direction="next"
             directionText="Next"
             onClickHandler={this.next}

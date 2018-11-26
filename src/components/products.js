@@ -5,12 +5,12 @@ import Img from 'gatsby-image'
 
 const Chocolates = ({ data: { chocolateInfos, chocolateImages } }) =>
   chocolateInfos.edges.map(edge => (
-    <Col xs={6}>
+    <Col lg={6}>
       <Row>
-        <Col xs={3}>
+        <Col lg={3}>
           <Img fluid={chocolateImages.edges[0].node.childImageSharp.fluid} />
         </Col>
-        <Col xs={9}>
+        <Col lg={9}>
           <div
             dangerouslySetInnerHTML={{
               __html: edge.node.html,
