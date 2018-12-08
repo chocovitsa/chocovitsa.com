@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Container, Row, Col } from 'reactstrap'
 import Img from 'gatsby-image'
+import deviderImg from '../images/square-and-cyrcles.svg'
 
 const Chocolates = ({ data: { chocolateInfos, chocolateImages } }) =>
   chocolateInfos.edges.map(edge => (
@@ -21,7 +22,7 @@ const Chocolates = ({ data: { chocolateInfos, chocolateImages } }) =>
     </Col>
   ))
 
-const Products = ({ data }) => (
+const Products = ({ data }) => [
   <section id="products">
     <Container>
       <Row>
@@ -38,8 +39,12 @@ const Products = ({ data }) => (
         <Chocolates data={data} />{' '}
       </Row>
     </Container>
-  </section>
-)
+  </section>,
+  <div
+    style={{ backgroundImage: `url(${deviderImg})` }}
+    className="section-devider"
+  />,
+]
 
 export default Products
 

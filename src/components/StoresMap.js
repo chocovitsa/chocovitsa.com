@@ -1,13 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
+import { Map, Marker, TileLayer } from 'react-leaflet'
 
 import L from 'leaflet'
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png'
 import iconUrl from 'leaflet/dist/images/marker-icon.png'
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png'
 import 'leaflet/dist/leaflet.css'
-import { checkPropTypes } from 'prop-types'
 
 export default class StoresMap extends React.Component {
   static props = {

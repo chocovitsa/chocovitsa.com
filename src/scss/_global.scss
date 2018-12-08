@@ -30,7 +30,7 @@ h6 {
 }
 
 section {
-  padding: 100px 0;
+  padding: 50px 0;
   h2.section-heading {
     font-size: 40px;
     margin-top: 0;
@@ -42,11 +42,6 @@ section {
     font-style: italic;
     margin-bottom: 75px;
     text-transform: none;
-  }
-}
-@media (min-width: 768px) {
-  section {
-    padding: 50px 0;
   }
 }
 
@@ -95,8 +90,8 @@ img::-moz-selection {
   background: transparent;
 }
 
-div.section-after {
-  height: 20px;
+div.section-devider {
+  height: 10px;
   background-repeat: repeat-x;
-  background-image: url('/images/section-after-1.png');
+  background-size: contain;
 }
