@@ -1,11 +1,7 @@
 module.exports = {
-  bg: {
-    path: 'bg',
-    locale: 'Български',
-    default: true,
+  available: {
+    bg: 'Български',
+    en: 'English',
   },
-  en: {
-    path: 'en',
-    locale: 'English',
-  },
+  default: 'bg',
 }

@@ -1,10 +1,18 @@
 import React from 'react'
 import { Container, Col, Row, Button } from 'reactstrap'
+import { injectIntl, intlShape } from 'react-intl'
 
-import stores from '../content/stores.bg'
+import bgStores from '../content/stores.bg'
+import enStores from '../content/stores.en'
 import Waypoint from 'react-waypoint'
 
-export default class Contact extends React.Component {
+const stores = { en: enStores, bg: bgStores }
+
+class Contact extends React.Component {
+  static propTypes = {
+    intl: intlShape.isRequired,
+  }
+
   state = {
     StoresMap: null,
     position: [42.625243, 25.3960524],
@@ -22,9 +30,10 @@ export default class Contact extends React.Component {
   }
 
   render() {
-    const { StoresMap } = this.state
-
-    const cards = stores.map((store, index) => (
+    const {
+      intl: { locale },
+    } = this.props
+    const cards = stores[locale].map((store, index) => (
       <>
         <Waypoint
           onEnter={() => this.focusOnStore(store.postion, index)}
@@ -54,6 +63,7 @@ export default class Contact extends React.Component {
       </>
     ))
 
+    const { StoresMap } = this.state
     return (
       <section id="contact">
         <Container>
@@ -63,7 +73,7 @@ export default class Contact extends React.Component {
               {StoresMap && (
                 <div className="sticky-top">
                   <StoresMap
-                    stores={stores}
+                    stores={stores[locale]}
                     position={this.state.position}
                     zoom={this.state.zoom}
                   />
@@ -76,3 +86,5 @@ export default class Contact extends React.Component {
     )
   }
 }
+
+export default injectIntl(Contact)

@@ -27,6 +27,7 @@
     "react-helmet": "^5.2.0",
     "react-intl": "^2.7.2",
     "react-leaflet": "^2.1.2",
+    "react-scrollspy": "^3.3.5",
     "react-waypoint": "^8.1.0",
     "reactstrap": "^6.5.0"
   },

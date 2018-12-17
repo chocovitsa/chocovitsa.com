@@ -6,10 +6,10 @@ summary: 'A real extravagance for the senses'
 language: 'en'
 ---
 
-# 60% cocoa with blueberries
+# 60% cocoa with cranberries
 
 a real extravagance for the senses
 
 ## Ingredients
 
-60% cocoa beans, cocoa butter, raw cane sugar, dried red blueberries
+60% Peruvian cacao beans, cocoa butter, raw cane sugar, dried cranberries.

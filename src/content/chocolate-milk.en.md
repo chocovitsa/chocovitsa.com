@@ -12,4 +12,4 @@ Tender and delicate with pure taste!
 
 ## Ingredients
 
-Organic cocoa beans, cocoa butter, raw cane sugar, milk powder, vanilla
+Peruvian cacao beans, cocoa butter, raw cane sugar, milk powder, vanilla.

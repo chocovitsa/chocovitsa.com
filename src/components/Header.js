@@ -1,6 +1,6 @@
 import React from 'react'
-import Showcase from './Showcase'
 import { graphql } from 'gatsby'
+import Showcase from './Showcase'
 
 const Header = ({ data }) => (
   <Showcase

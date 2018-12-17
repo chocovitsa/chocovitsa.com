@@ -21,7 +21,6 @@ import compassIcon from '../images/compass.svg'
 import chatIcon from '../images/placeholder.svg'
 import langIcon from '../images/translation.svg'
 import moreIcon from '../images/choco-more.svg'
-import blackDots from '../images/black-dots.svg'
 
 const NavItemLink = ({ icon, text, href, active = false }) => (
   <NavItem>
@@ -42,11 +41,11 @@ class Navigation extends React.Component {
       intl: { messages },
     } = this.props
 
-    const langDropdownItems = Object.values(locales).map(locale => (
-      <DropdownItem onClick={() => this.selectLang(locale.path)}>
-        {locale.locale}
-      </DropdownItem>
-    ))
+    const langDropdownItems = Object.entries(locales.available).map(
+      ([key, lang]) => (
+        <DropdownItem onClick={() => this.selectLang(key)}>{lang}</DropdownItem>
+      )
+    )
 
     return (
       <Navbar color="dark" dark expand="md" fixed="bottom" expand={true}>

@@ -7,15 +7,15 @@ class Index extends React.Component {
   constructor(props) {
     super(props)
 
-    const langKeys = Object.keys(locales)
-    const fallback = langKeys.find(langKey => locales[langKey].default)
+    const languages = Object.keys(locales.available)
+    const fallback = locales.default
 
     // Skip build, Browsers only
     if (typeof window !== 'undefined') {
       const detected =
-        window.localStorage.getItem('language') ||
+        (window.localStorage && window.localStorage.getItem('language')) ||
         browserLang({
-          languages: langKeys,
+          languages,
           fallback,
         })
 

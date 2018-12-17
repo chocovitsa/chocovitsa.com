@@ -12,4 +12,4 @@ An abundance of sweetness with surprising cocoa end
 
 ## Ingredients
 
-Cocoa butter, full cream milk powder, skimmed milk powder, raw cane sugar, Bourbon vanilla, cocoa nibs.
+Cocoa butter, full cream milk powder, skimmed milk powder, raw cane sugar, Bourbon vanilla, cacao nibs.

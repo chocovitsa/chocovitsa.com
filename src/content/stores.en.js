@@ -2,7 +2,7 @@ export default [
   {
     postion: [42.6947517, 23.3183354],
     place: 'Sofia',
-    address: 'бул. „Витоша“ 4',
+    address: 'blvd. „Vitosha“ 4',
     retailer: 'Balkansko',
     site: 'http://balkansko-shops.bg/',
   },
@@ -59,6 +59,6 @@ export default [
     postion: [43.0847511, 25.6370871],
     place: 'Veliko Tarnovo',
     address: 'str. „Stefan Stambolov“ 53',
-    retailer: 'Non-stop',
+    retailer: 'Happy Potter',
   },
 ]
