@@ -1,12 +1,26 @@
 import React from 'react'
 import { Container, Col, Row, Button } from 'reactstrap'
-import { injectIntl, intlShape } from 'react-intl'
+import { injectIntl, intlShape, FormattedMessage } from 'react-intl'
+import {
+  Facebook,
+  Instagram,
+  AtSign,
+  Phone,
+  MessageCircle,
+} from 'react-feather'
 
 import bgStores from '../content/stores.bg'
 import enStores from '../content/stores.en'
 import Waypoint from 'react-waypoint'
 
 const stores = { en: enStores, bg: bgStores }
+
+const ContactInfoLine = ({ icon, text, href }) => (
+  <>
+    <dt className="col-sm-1">{icon}</dt>
+    <dd className="col-sm-11">{href ? <a href={href}>{text}</a> : text}</dd>
+  </>
+)
 
 class Contact extends React.Component {
   static propTypes = {
@@ -67,11 +81,48 @@ class Contact extends React.Component {
     return (
       <section id="contact">
         <Container>
+          <h1>
+            <FormattedMessage id="contact.us" />
+          </h1>
+          <Row>
+            <Col lg={4}>
+              <dl className="row">
+                <ContactInfoLine icon={<Phone />} text="088 868 7019" />
+                <ContactInfoLine
+                  icon={<AtSign />}
+                  text="chocovitsa@abv.bg"
+                  href="mailto:chocovitsa@abv.bg"
+                />
+                <ContactInfoLine
+                  icon={<MessageCircle />}
+                  text="m.me/chocovitsaplovdiv"
+                  href="https://m.me/chocovitsaplovdiv"
+                />
+              </dl>
+            </Col>
+            <Col lg={4}>
+              <ul className="list-inline social-buttons">
+                <li className="list-inline-item">
+                  <a href="https://www.facebook.com/chocovitsaplovdiv/">
+                    <Facebook />
+                  </a>
+                </li>
+                <li className="list-inline-item">
+                  <a href="https://www.instagram.com/chocovitsa/">
+                    <Instagram />
+                  </a>
+                </li>
+              </ul>
+            </Col>
+          </Row>
+          <h1>
+            <FormattedMessage id="contact.buy" />
+          </h1>
           <Row>
             <Col lg="4">{cards}</Col>
             <Col lg="8">
               {StoresMap && (
-                <div className="sticky-top">
+                <div className="sticky-top" style={{ top: '50px' }}>
                   <StoresMap
                     stores={stores[locale]}
                     position={this.state.position}

@@ -3,10 +3,8 @@ import { StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { IntlProvider, addLocaleData } from 'react-intl'
-import Navigation from './Navigation'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
-import '@fortawesome/fontawesome-free/css/all.css'
 import '../scss/agency.scss'
 
 class Layout extends React.Component {
@@ -25,7 +23,6 @@ class Layout extends React.Component {
               { name: 'keywords', content: 'sample, something' },
             ]}
           />
-          <Navigation />
           {children}
         </div>
       </IntlProvider>

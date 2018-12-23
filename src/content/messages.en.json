@@ -1,5 +1,7 @@
 {
   "navigation.products": "Chocolates",
   "navigation.about": "About",
-  "navigation.contact": "Contacts"
+  "navigation.contact": "Contacts",
+  "contact.us": "Contact us",
+  "contact.buy": "Where to buy"
 }

@@ -7,7 +7,6 @@ import {
   CarouselControl,
   CarouselCaption,
 } from 'reactstrap'
-import deviderImg from '../images/red-blue-dots.svg'
 
 export default class Header extends React.Component {
   state = { activeIndex: 0 }
@@ -60,7 +59,7 @@ export default class Header extends React.Component {
       )
     })
 
-    return [
+    return (
       <header>
         <Carousel
           activeIndex={activeIndex}
@@ -79,12 +78,8 @@ export default class Header extends React.Component {
             onClickHandler={this.next}
           />
         </Carousel>
-      </header>,
-      <div
-        style={{ backgroundImage: `url(${deviderImg})` }}
-        className="section-devider"
-      />,
-    ]
+      </header>
+    )
   }
 }
 

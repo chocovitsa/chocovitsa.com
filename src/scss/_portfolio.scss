@@ -1,3 +1,7 @@
 section#products {
-  background-color: $primary;
+  background-image: url('/images/patterns.svg');
+  background-color: $bg;
+  .container {
+    background-color: $bg;
+  }
 }
