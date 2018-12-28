@@ -2,14 +2,15 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Container, Row, Col } from 'reactstrap'
 import Img from 'gatsby-image'
-import deviderImg from '../images/square-and-cyrcles.svg'
 
 const Chocolates = ({ data: { chocolateInfos, chocolateImages } }) =>
-  chocolateInfos.edges.map(edge => (
+  chocolateInfos.edges.map((edge, index) => (
     <Col lg={6}>
       <Row>
         <Col lg={3}>
-          <Img fluid={chocolateImages.edges[0].node.childImageSharp.fluid} />
+          <Img
+            fluid={chocolateImages.edges[index].node.childImageSharp.fluid}
+          />
         </Col>
         <Col lg={9}>
           <div
@@ -22,7 +23,7 @@ const Chocolates = ({ data: { chocolateInfos, chocolateImages } }) =>
     </Col>
   ))
 
-const Products = ({ data }) => [
+const Products = ({ data }) => (
   <section id="products">
     <Container>
       <Row>
@@ -39,12 +40,8 @@ const Products = ({ data }) => [
         <Chocolates data={data} />{' '}
       </Row>
     </Container>
-  </section>,
-  <div
-    style={{ backgroundImage: `url(${deviderImg})` }}
-    className="section-devider"
-  />,
-]
+  </section>
+)
 
 export default Products
 
@@ -65,15 +62,15 @@ export const aboutChocolatesQuery = graphql`
     chocolateImages: allFile(
       filter: {
         absolutePath: { regex: "/chocolate-/" }
-        extension: { in: ["png", "jpg"] }
+        extension: { eq: "jpg" }
       }
     ) {
       edges {
         node {
+          absolutePath
           childImageSharp {
             fluid(maxWidth: 1920, quality: 80) {
               ...GatsbyImageSharpFluid
-              originalName
             }
           }
         }
@@ -87,6 +84,7 @@ export const aboutChocolatesQuery = graphql`
     ) {
       edges {
         node {
+          fileAbsolutePath
           html
         }
       }

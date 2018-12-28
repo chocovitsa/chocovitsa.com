@@ -16,10 +16,10 @@ import Waypoint from 'react-waypoint'
 const stores = { en: enStores, bg: bgStores }
 
 const ContactInfoLine = ({ icon, text, href }) => (
-  <>
-    <dt className="col-sm-1">{icon}</dt>
-    <dd className="col-sm-11">{href ? <a href={href}>{text}</a> : text}</dd>
-  </>
+  <div className="row">
+    <dt className="col-1">{icon}</dt>
+    <dd className="col-10">{href ? <a href={href}>{text}</a> : text}</dd>
+  </div>
 )
 
 class Contact extends React.Component {
@@ -86,7 +86,7 @@ class Contact extends React.Component {
           </h1>
           <Row>
             <Col lg={4}>
-              <dl className="row">
+              <dl>
                 <ContactInfoLine icon={<Phone />} text="088 868 7019" />
                 <ContactInfoLine
                   icon={<AtSign />}

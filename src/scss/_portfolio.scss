@@ -1,7 +1,9 @@
-section#products {
+body {
   background-image: url('/images/patterns.svg');
   background-color: $bg;
   .container {
     background-color: $bg;
+    // box-shadow: 3px 3px 5px 6px #ccc;
+    opacity: 0.75;
   }
 }
