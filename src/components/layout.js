@@ -8,14 +8,19 @@ import '../scss/agency.scss'
 
 class Layout extends React.Component {
   render() {
-    const { locale, data, children } = this.props
+    const { locale, children } = this.props
     // Good only for SSR
     addLocaleData(require(`react-intl/locale-data/${locale}`))
     const messages = require(`../content/messages.${locale}`)
     return (
       <IntlProvider locale={locale} messages={messages}>
         <div>
-          <Seo title={data.site.siteMetadata.title} lang={locale} />
+          <Seo
+            lang={locale}
+            title={messages['metadata.title']}
+            description={messages['metadata.description']}
+            keywords={messages['metadata.keywords']}
+          />
           {children}
         </div>
       </IntlProvider>

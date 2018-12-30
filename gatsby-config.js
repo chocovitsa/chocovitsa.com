@@ -1,9 +1,4 @@
 module.exports = {
-  siteMetadata: {
-    title: 'Chockovitsa - Chocolates in Bulgarian embroidery',
-    author: 'chocovitsa.com',
-    description: 'Chockovitsa web site',
-  },
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-remark',

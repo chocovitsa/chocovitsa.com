@@ -7,7 +7,7 @@ import Contact from '../components/Contact'
 import Footer from '../components/footer'
 
 const Home = ({ pathContext: { locale }, data }) => (
-  <Layout locale={locale} data={data}>
+  <Layout locale={locale}>
     <Header data={data} />
     <Products data={data} />
     <About data={data} />
@@ -33,11 +33,6 @@ export const dataQuery = graphql`
         node {
           id
         }
-      }
-    }
-    site {
-      siteMetadata {
-        title
       }
     }
   }
