@@ -26,6 +26,7 @@ const Seo = ({ lang, title, description, keywords }) => (
         name: 'google-site-verification',
         content: 'MQN82vrvPE1iL7uHXMd0IC6vklEjUdrL3RG5HtCg21g',
       },
+      { name: 'msvalidate.01', content: '0D0715CC1E167883809552DCD2ED1014' },
     ]}
     link={[
       { rel: 'shortcut icon', href: favicon },
