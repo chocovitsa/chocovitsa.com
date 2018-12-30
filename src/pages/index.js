@@ -2,6 +2,7 @@ import React from 'react'
 import browserLang from 'browser-lang'
 import { navigate } from 'gatsby'
 import locales from '../content/locales'
+import Seo from '../components/Seo'
 
 class Index extends React.Component {
   constructor(props) {
@@ -24,7 +25,12 @@ class Index extends React.Component {
   }
 
   render() {
-    return <div />
+    return (
+      <Seo
+        locale={locales.default}
+        title="Chockovitsa - Chocolates in Bulgarian embroidery"
+      />
+    )
   }
 }
 
