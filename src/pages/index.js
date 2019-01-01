@@ -29,7 +29,7 @@ class Index extends React.Component {
     return (
       <Layout locale={locales.default}>
         {languages.map(locale => (
-          <Link to={`${locale}/home`} />
+          <Link to={`${locale}/home`}>{locales.available[locale]}</Link>
         ))}
       </Layout>
     )
