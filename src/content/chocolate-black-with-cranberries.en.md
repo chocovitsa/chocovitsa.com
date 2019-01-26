@@ -6,7 +6,7 @@ summary: 'A real extravagance for the senses'
 language: 'en'
 ---
 
-# 60% cocoa with cranberries
+# 60% Cocoa with cranberries
 
 a real extravagance for the senses
 

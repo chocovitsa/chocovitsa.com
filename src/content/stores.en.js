@@ -49,6 +49,13 @@ export default [
     site: 'http://leksi.eu/',
   },
   {
+    postion: [42.14161, 24.71947],
+    place: 'Plovdiv',
+    address: 'str. "Perushtitsa" 8, Mall Plovdiv, fl. 2',
+    retailer: 'Green Road',
+    site: 'https://www.facebook.com/zeleniatkyt1/',
+  },
+  {
     postion: [42.4877054, 27.4814757],
     place: 'Burgas',
     address: 'Magazia 1',

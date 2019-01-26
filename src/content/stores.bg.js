@@ -49,6 +49,13 @@ export default [
     site: 'http://leksi.eu/',
   },
   {
+    postion: [42.14161, 24.71947],
+    place: 'Пловдив',
+    address: 'ул. "Перущица" 8, Mall Plovdiv, ет. 2',
+    retailer: 'Зеленият Кът',
+    site: 'https://www.facebook.com/zeleniatkyt1/',
+  },
+  {
     postion: [42.4877054, 27.4814757],
     place: 'Бургас',
     address: 'Магазия 1',
