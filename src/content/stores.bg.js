@@ -18,7 +18,8 @@ export default [
     place: 'София',
     address: 'ул. „Лъчезар Станчев“ 5',
     retailer: 'Лайка',
-    site: 'http://laika.bg/',
+    site:
+      'http://laika.bg/index.php?route=product/search&search=%D1%88%D0%BE%D0%BA%D0%BE%D0%B2%D0%B8%D1%86%D0%B0',
   },
   {
     postion: [42.6904265, 23.3270546],
@@ -33,6 +34,14 @@ export default [
     address: 'ул. „Георги С. Раковски“ 178',
     retailer: 'Слънчев Дар',
     site: 'https://www.facebook.com/slunchevdar/',
+  },
+  {
+    postion: [42.6939413, 23.3173136],
+    place: 'София',
+    address: 'ул. „Иван Денкоглу“ 24',
+    retailer: 'Gifted Sofia',
+    site:
+      'https://giftedsofia.com/?s=%D1%88%D0%BE%D0%BA%D0%BE%D0%B2%D0%B8%D1%86%D0%B0&post_type=product',
   },
   {
     postion: [42.154843, 24.7286255],
@@ -61,6 +70,20 @@ export default [
     address: 'Магазия 1',
     retailer: 'Балканско',
     site: 'http://balkansko-shops.bg/',
+  },
+  {
+    postion: [43.2125681, 27.910616],
+    place: 'Варна',
+    address: 'бул. „8-ми Приморски полк“ 60',
+    retailer: 'Chocolate Shop',
+    site: 'https://www.facebook.com/ChocolateShopBG/',
+  },
+  {
+    postion: [43.2174185, 27.8963749],
+    place: 'Варна',
+    address: 'ул. „Академик Андрей Сахаров“ 2, Grand Mall Varna, fl. 2',
+    retailer: 'Chocolate Shop',
+    site: 'https://www.facebook.com/ChocolateShopBG/',
   },
   {
     postion: [43.0847511, 25.6370871],

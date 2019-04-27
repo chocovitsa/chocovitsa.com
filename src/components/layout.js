@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { IntlProvider, addLocaleData } from 'react-intl'
 import Seo from '../components/Seo'
 
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/scss/bootstrap.scss'
 import '../scss/agency.scss'
 
 class Layout extends React.Component {
